@@ -17,3 +17,16 @@
 """
 
 ignore = ["duplex", "alias", "configuration"]
+
+#from sys import argv
+
+#fconfig = argv[1]
+
+with open('config_sw1.txt', 'r') as f:
+    for command in ignore:
+        for line in f:
+            if line.startswith('!'):
+                continue
+            else:
+                if command not in line:
+                    print(line.rstrip())

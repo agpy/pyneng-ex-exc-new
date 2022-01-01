@@ -16,4 +16,18 @@
 
 """
 
+from sys import argv
+
+fconfig = argv[1]
+foutput = argv[2]
+
 ignore = ["duplex", "alias", "configuration"]
+
+with open('fconfig', 'r') as src, open('foutput', 'w') as dst:
+    for command in ignore:
+        for line in src:
+            if line.startswith('!'):
+                continue
+            else:
+                if command not in line:
+                    dst.write(line.rstrip())

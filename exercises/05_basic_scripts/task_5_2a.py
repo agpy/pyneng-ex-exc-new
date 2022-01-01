@@ -49,3 +49,31 @@ bin_ip = "00001010000000010000000111000011"
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+net_mask = input("Enter network decimal: ")
+network, mask = net_mask.split('/')
+network = network.split('.')
+
+mask_b = int(mask) * "1" + (32 - int(mask)) * "0"
+zeros = 32 - int(mask)
+
+oct1, oct2, oct3, oct4 = [int(network[0]), int(network[1]), int(network[2]), int(network[3])]
+ip_str = "{:08b}{:08b}{:08b}{:08b}".format(oct1, oct2, oct3, oct4)
+net_str = ip_str[:-zeros] + zeros * "0"
+
+net_output = '''
+Network:
+{0:<8}  {1:<8}  {2:<8}  {3:<8}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}'''
+
+mask_output = '''
+Mask:
+/{0}
+{1:<8}  {2:<8}  {3:<8}  {4:<8}
+{1:08b}  {2:08b}  {3:08b}  {4:08b}
+'''
+
+
+#print(ip_str)
+#print(net_str)
+print(net_output.format(int(net_str[:8], 2), int(net_str[8:16], 2), int(net_str[16:24], 2), int(net_str[24:], 2)))
+print(mask_output.format(mask, int(mask_b[:8], 2), int(mask_b[8:16], 2), int(mask_b[16:24], 2), int(mask_b[24:], 2)))

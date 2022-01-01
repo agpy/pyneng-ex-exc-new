@@ -30,3 +30,24 @@ Out[1]: '11111111111111111111111111110000'
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+net_mask = input("Enter network decimal: ")
+network, mask = net_mask.split('/')
+network = network.split('.')
+oct1, oct2, oct3, oct4 = [int(network[0]), int(network[1]), int(network[2]), int(network[3])]
+mask_b = int(mask) * "1" + (32 - int(mask)) * "0"
+
+net_output = '''
+Network:
+{0:<8}  {1:<8}  {2:<8}  {3:<8}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}'''
+
+mask_output = '''
+Mask:
+/{0}
+{1:<8}  {2:<8}  {3:<8}  {4:<8}
+{1:08b}  {2:08b}  {3:08b}  {4:08b}
+'''
+
+#print(network)
+print(net_output.format(oct1, oct2, oct3, oct4))
+print(mask_output.format(mask, int(mask_b[:8], 2), int(mask_b[8:16], 2), int(mask_b[16:24], 2), int(mask_b[24:], 2)))

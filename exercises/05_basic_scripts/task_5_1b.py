@@ -50,3 +50,10 @@ london_co = {
         "routing": True,
     },
 }
+
+out_nested_dict = input("Enter device name: ")
+params = ', '.join(london_co[out_nested_dict].keys())
+out_nested_param = input(f"Enter params ({params}): ")
+
+#print(params)
+print(london_co[out_nested_dict][out_nested_param])

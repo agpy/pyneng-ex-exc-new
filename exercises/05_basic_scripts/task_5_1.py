@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+r# -*- coding: utf-8 -*-
 """
 Задание 5.1
 
@@ -46,3 +46,7 @@ london_co = {
         "routing": True,
     },
 }
+
+out_nested_dict = input("Enter device name: ")
+
+print(london_co[out_nested_dict])

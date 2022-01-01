@@ -44,3 +44,8 @@ london_co = {
         "routing": True,
     },
 }
+
+out_nested_dict = input("Enter device name: ")
+out_nested_param = input("Enter param name: ")
+
+print(london_co[out_nested_dict][out_nested_param])
